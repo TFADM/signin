@@ -32,7 +32,7 @@
             let LINEid = profile.userId;
             let LINEdisplayName = profile.displayName;
             let LINEprofilePIC = profile.pictureUrl;
-            let url = "https://script.google.com/macros/s/AKfycbwdbVLD-ikK0nhfZPdrXQwjzEWQ1N4sVbiujO_FbGrfI0W-lWjo5Wz0iMsZfjrpA5GM/exec?userId=" + LINEid + "&displayName=" + LINEdisplayName + "&pictureUrl=" + LineprofilePIC;
+            let url = "https://script.google.com/macros/s/AKfycbwdbVLD-ikK0nhfZPdrXQwjzEWQ1N4sVbiujO_FbGrfI0W-lWjo5Wz0iMsZfjrpA5GM/exec?LINEid=" + LINEid + "&LINEdisplayName=" + LINEdisplayName + "&LineprofilePIC=" + LineprofilePIC;
             document.getElementById("formframe").src = url;
         }).catch(err => console.error(err));
     }
