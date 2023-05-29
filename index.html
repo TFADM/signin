@@ -29,9 +29,9 @@
     
     function runApp() {
         liff.getProfile().then(profile => {
-            let LINEid = profile.userId;
-            let LINEdisplayName = profile.displayName;
-            let LINEprofilePIC = profile.pictureUrl;
+            let userId = profile.userId;
+            let displayName = profile.displayName;
+            let pictureUrl = profile.pictureUrl;
             let url = "https://script.google.com/macros/s/AKfycbwdbVLD-ikK0nhfZPdrXQwjzEWQ1N4sVbiujO_FbGrfI0W-lWjo5Wz0iMsZfjrpA5GM/exec?userId=" + userId + "&displayName=" + displayName + "&pictureUrl=" + pictureUrl;
             document.getElementById("formframe").src = url;
         }).catch(err => console.error(err));
