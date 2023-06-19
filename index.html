@@ -26,25 +26,36 @@
 </body>
 <script src="https://static.line-scdn.net/liff/edge/versions/2.15.0/sdk.js"></script>
 <script>
-    
-    function runApp() {
-        liff.getProfile().then(profile => {
-            let userId = profile.userId;
-            let displayName = profile.displayName;
-            let pictureUrl = profile.pictureUrl;
-            let url = "https://script.google.com/macros/s/AKfycbwdbVLD-ikK0nhfZPdrXQwjzEWQ1N4sVbiujO_FbGrfI0W-lWjo5Wz0iMsZfjrpA5GM/exec?userId=" + userId + "&displayName=" + displayName + "&pictureUrl=" + pictureUrl;
-            document.getElementById("formframe").src = url;
-        }).catch(err => console.error(err));
-    }
+  function runApp() {
+    liff.getProfile().then(profile => {
+      let userId = profile.userId;
+      let displayName = profile.displayName;
+      let pictureUrl = profile.pictureUrl;
+      let url =
+        "https://script.google.com/macros/s/AKfycbwdbVLD-ikK0nhfZPdrXQwjzEWQ1N4sVbiujO_FbGrfI0W-lWjo5Wz0iMsZfjrpA5GM/exec?userId=" +
+        userId +
+        "&displayName=" +
+        displayName +
+        "&pictureUrl=" +
+        pictureUrl;
+      document.getElementById("formframe").src = url;
 
-    liff.init({ liffId: "1660908214-Ymapbqbo" }, () => {
-        if (liff.isLoggedIn()) {
-            runApp();
-        } else {
-            liff.login();
-        }
-    }, err => console.error(err.code, error.message));
+      // Call the saveUser function to save/update user data
+      google.script.run.saveUser(userId, displayName, pictureUrl);
+    }).catch(err => console.error(err));
+  }
 
+  liff.init(
+    { liffId: "1660908214-Ymapbqbo" },
+    () => {
+      if (liff.isLoggedIn()) {
+        runApp();
+      } else {
+        liff.login();
+      }
+    },
+    err => console.error(err.code, err.message)
+  );
 </script>
 
 </html>
